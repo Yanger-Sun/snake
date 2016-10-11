@@ -182,39 +182,38 @@ function tanchishe(){
 
 
     zan.on("click",function(){
-        if($(this).html()=="暂停"){
+        if($(this).text()=="暂停"){
             clearInterval(t)
             setTimeout(function(){
-                zan.html("继续");
+                zan.text("继续");
             },200)
-        }else if($(this).html()=="继续"){
+        }else if($(this).text()=="继续"){
             t=setInterval(move,200)
             setTimeout(function(){
-                zan.html("暂停");
+                zan.text("暂停");
             },200)
         }
     })
 
     sta.on("click",function(){
-        if($(this).html()=="开始") {
+        if($(this).text()=="开始") {
             clearInterval(t)
             setTimeout(function(){
                 $(".sence").html("")
                 jiemian()
                 tanchishe();
-                $(this).html("结束")
-                zan.html("暂停");
+                $(this).text("结束")
+                zan.text("暂停");
             },200)
-
-        }else if($(this).html()=="结束"){
+        }else if($(this).text()=="结束"){
             clearInterval(t)
             var endan=confirm("确定要结束吗？")
             if(endan){
                 alert("你当前的成绩为："+count+"分")
                 setTimeout(function(){
-                    sta.html("开始")
-                    $(".sence").html("")
-                    jiemian()
+                    $(".sta").text("开始");
+                    $(".sence").html("");
+                    jiemian();
                 },200)
 
             }else{
